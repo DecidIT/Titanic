@@ -7,15 +7,15 @@
 #           -> Assessment: Titanic Survival
 #-----------------------------------------------------------------
 library(rmarkdown)
+library(stringr)
 
-cat(getwd())
-if (getwd() != "codeR") {setwd("codeR")}
+if (str_sub(getwd(), -5, -1) != "codeR") {setwd("codeR")}
 
 # Load and prepare data for titanic survival analysis
-#source("PrepareData.R")
+source("PrepareData.R")
 
 # Execute analysis and produce report
-#render("Analysis.Rmd", "all",
-#       output_file = "TitanicSurvival",
-#       output_dir  ="../reports/"  
-#       )
+render("Analysis.Rmd", "all",
+       output_file = "TitanicSurvival",
+       output_dir  ="../reports/"  
+       )
